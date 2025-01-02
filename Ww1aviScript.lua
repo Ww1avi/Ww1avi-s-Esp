@@ -1,4 +1,5 @@
-print("Script Loaded")
+print("Script Loaded")  -- Check if the script is running
+
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local RunService = game:GetService("RunService")
@@ -7,6 +8,7 @@ local RunService = game:GetService("RunService")
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Name = "Ww2avi's Script"
 ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
+print("GUI Created")
 
 local Button = Instance.new("TextButton")
 Button.Name = "ToggleButton"
@@ -17,6 +19,7 @@ Button.BackgroundColor3 = Color3.new(0, 0.6, 0.8)
 Button.TextColor3 = Color3.new(1, 1, 1)
 Button.TextScaled = true
 Button.Parent = ScreenGui
+print("Button Created")
 
 -- Variables for activation toggle
 local isActive = false
@@ -24,6 +27,7 @@ local connections = {}
 
 -- Function to highlight players
 local function highlightPlayer(player)
+    print("Highlighting Player: " .. player.Name)
     local function onCharacterAdded(character)
         local rootPart = character:WaitForChild("HumanoidRootPart", 10)
         if not rootPart then return end
@@ -57,6 +61,7 @@ end
 
 -- Enable/Disable the script
 local function toggleScript()
+    print("Toggling Script")
     isActive = not isActive
     Button.Text = isActive and "Deactivate" or "Activate"
 
